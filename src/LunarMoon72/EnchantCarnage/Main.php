@@ -67,9 +67,6 @@ class Main extends PluginBase
     			case 3:
     			  $this->getServer()->dispatchCommand($player, "enchant " . $player->getName() . " fire_aspect " . $data[3]);
     			break;
-
-    			case 4:
-    			  $this->getServer()->dispatchCommand($player, "enchant " . $player->getName() " looting " . $data[4]);
     		}
     	});
     	$form->setTitle("Press an enchant");
@@ -77,7 +74,6 @@ class Main extends PluginBase
     	$form->addSlider("Unbreaking", 0, 5);
     	$form->addSlider("KnockBack", 0, 5);
     	$form->addSlider("Fire Aspect", 0, 5);
-    	$form->addSlider("Looting", 0, 5);
     	$form->sendToPlayer($player);
     	return $form;
     }
