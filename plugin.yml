@@ -1,0 +1,16 @@
+name: EnchantCarnage
+version: 1.0.0
+api: 3.21.1
+main: LunarMoon72\EnchantCarnage\Main
+mcpe-protocal: 448
+
+commands:
+  ecarnage:
+    permission: ecarnage.cmd
+    description: Open The EC UI!
+    aliases: carnage
+
+permissions:
+  ecarnage.cmd:
+    description: EC UI Command permission
+    default: op
