@@ -8,6 +8,9 @@ use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\Server;
 
+use jojoe77777\FormAPI\SimpleForm;
+use jojoe77777\FormAPI;
+
 class Main extends PluginBase
 {
 	public function onCommand(CommandSender $sender, Command $cmd, String $label, Array $args) : bool {
@@ -22,10 +25,10 @@ class Main extends PluginBase
 		return true;
 	}
     public function select($player){
-    	$form = $this->getServer()->getPluginManager()->getPlugin("FormAPI")->createSimpleForm(function (Player $player, int $data = null){
-    		if($data === null){
-    			return true;
-    		}
+		$form = new SimpleForm(function(Player $player, $data){
+			if($data === null){
+				return true;
+			}
     		switch($data){
     			case 0:
     			  $sender->weapon($sender);
@@ -45,7 +48,7 @@ class Main extends PluginBase
     	return $form;   
     }
     public function weapon($player){
-    	$form = $this->getServer()->getPluginManager()->getPlugin("FormAPI")->createCustomForm(function(Player $player, int $data = null){
+    	$form = new CustomForm(function(Player $player, $data){
     		if($data === null){
     			return true;
     		}
@@ -78,7 +81,7 @@ class Main extends PluginBase
     	return $form;
     }
     public function tool($player){
-    	$form = $this->getServer()->getPluginManager()->getPlugin("FormAPI")->createCustomForm(function (Player $player, int $data = null){
+    	$form = new CustomForm(function(Player $player, $data){
     		if($data === null){
     			return true;
     		}
